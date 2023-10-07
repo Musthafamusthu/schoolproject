@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+<div class="container">
+<form action="{% url 'detailsform' %}" id="studdetailsForm" method="post" data-courses-url="{% url 'ajax_load_courses' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+<!--        <table>-->
+<!--        <tr>-->
+<!--    <td><label for= "First_Name"> Fist_Name:</label></td>-->
+<!--    <td><input type="text" name="first_name" placeholder="StudentName"></td></tr><br>-->
+<!--    <tr>-->
+<!--        <td><label for= "Last_Name"> Last_Name:</label></td>-->
+<!--    <td><input type="text" name="last_name" placeholder="Studlastname"></td></tr><br>-->
+<!--    <tr>-->
+<!--        <td><label for= "DOB"> DOB:</label></td>-->
+<!--    <td><input type="date" name="birthday"></td></tr><br>-->
+<!--    <tr>-->
+<!--        <td><label for="age">Age:</label></td>-->
+<!--    <td><input type="text" name="age"></td></tr><br>-->
+<!--    <tr>-->
+<!--        <td><label for= "genter_male"> Male:</label></td>-->
+<!--    <td><input type="radio" name="Gender-choice" value="choice-1"></td></tr>-->
+<!--    <tr>-->
+<!--        <td><label for= "gender_female"> Female:</label></td>-->
+<!--    <td><input type="radio" name="Gender-choice" value="choice-2"></td></tr>-->
+<!--    <tr>-->
+<!--        <td><label for= "gender_other"> Other:</label></td>-->
+<!--    <td><input type="radio" name="Gender-choice" value="choice-3"></td></tr><br>-->
+<!--        <tr><br>-->
+<!--        <td><label for= "phone_number"> Phone Number:</label></td>-->
+<!--    <td><input type="text" name="country code"  value="+91" size="2"/>-->
+<!--    <input type="text" name="phone" size="10"/>-->
+<!--    </td><tr><br>-->
+<!--        <td><label for= "mail_id"> Email:</label></td>-->
+<!--        <td>-->
+<!--            <input type="email" id="email" name="email"/></td></tr><br>-->
+<!--    <tr>-->
+<!--        <td><label for= "address"> Address:</label></td>-->
+<!--        <td>-->
+<!--    <textarea value="address"></textarea>-->
+<!--        </td>-->
+<!--        </tr><br>-->
+<!--            <tr>-->
+<!--        <td><label for="department">Department</label></td>-->
+<!--        <td>-->
+<!--&lt;!&ndash;            <select>&ndash;&gt;-->
+<!--&lt;!&ndash;                <option disabled selected="true"> &#45;&#45; select department &#45;&#45; </option>&ndash;&gt;-->
+<!--&lt;!&ndash;                {% for departments in department %}&ndash;&gt;-->
+<!--&lt;!&ndash;                <option value="{{departments.dprtmnt}}">{{departments.Dname}}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;            </select>&ndash;&gt;-->
+<!--        </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--        <td><label for="course">Course</label></td>-->
+<!--        <td>-->
+<!--            <select>-->
+<!--                <option disabled selected="true"> &#45;&#45; select course &#45;&#45; </option>-->
+<!--                {% for courses in course %}-->
+<!--                <option value="{{courses.dprtmnt}}">{{courses.Cname}}</option>-->
+<!--                {% endfor %}-->
+<!--            </select>-->
+<!--        </td>-->
+<!--            </tr><br>-->
+<!--            <tr>-->
+<!--        <td><label for="purpose">Purpose</label></td>-->
+<!--        <td>-->
+<!--                <select id="pupose">-->
+<!--                    <option disabled selected="true"> &#45;&#45; select purpose &#45;&#45; </option>-->
+<!--                    <option value="enqry">For Enquiry</option>-->
+<!--                    <option value="order">Place Order</option>-->
+<!--                    <option value="return">Place Return</option>-->
+<!--                </select>-->
+<!--        </td>-->
+<!--            </tr><br>-->
+<!--        <td><label for="material">Materials Required :</label></td>-->
+<!--        <td>-->
+<!--          <input type="checkbox" id="debit" name="materials[]" value="Debit Card">-->
+<!--          <label for="debit">Debit Card</label>-->
+<!--          <input type="checkbox" id="credit" name="materials[]" value="Credit Card">-->
+<!--          <label for="credit">Credit Card</label>-->
+<!--          <input type="checkbox" id="cheque" name="materials[]" value="Chequebook">-->
+<!--          <label for="debit">Cheque Book</label></td>-->
+<!--      </tr>-->
+        <tr div class="button">
+        <td colspan="2"><input type="submit" class="Submit" value="Submit"></td>
+        </tr>
+        <tr div class="button">
+        <td colspan="2"><input type="submit" class="Logout" value="Logout" onclick="index.html" /></td>
+        </tr>
+<!--            <tr div class="button">-->
+<!--            <td><a href="index.html">-->
+<!--      <input type="submit"/>-->
+<!--    </a></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+</form>
+</div>
+
+<!--<script>-->
+
+<!-- $(document).ready(function()-->
+<!--        {-->
+<!--            var departmentddl=$("#departmentddl");-->
+<!--            var courseddl=$("#courseddl");-->
+<!--            var $options=courseddl.find('option');-->
+<!--                departmentddl.on('change',function()-->
+<!--                {                courseddl.html($options.filter('[value="'+ this.value +'"]'));-->
+<!--                }).trigger('change');-->
+<!--        });-->
+<!--</script>-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_department").change(function () {
+        const url = $("#studdetailsForm").attr("data-courses-url");  // get the url of the `load_courses` view
+        const departmentId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /schoolapp/ajax/load-courses/ )
+            data: {
+                'department_id': departmentId       // add the country id to the GET parameters
+            },
+            success: function (data) { // `data` is the return of the `load_courses` view function
+                console.log(data)
+                $("#id_course").html(data);  // replace the contents of the city input with the data that came from the server
+<!--                -->
+<!--                let html_data = '<option value="">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>';-->
+<!--                data.forEach(function (courses) {-->
+<!--                    html_data += `<option value="${courses.id}">${courses.name}</option>`-->
+<!--                });-->
+<!--                console.log(html_data);-->
+<!--                $("#id_courses").html(html_data);-->
+
+<!--                -->
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

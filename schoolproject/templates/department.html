@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Department</title>
+</head>
+<body>
+    <form action="/department/" method="post">
+    {% csrf_token %}
+        <input type="text" name="departmentname" placeholder="departmentname"><br>
+        <input type="submit">
+    </form>
+</body>
